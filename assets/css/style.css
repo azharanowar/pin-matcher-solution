@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+
 * {
     box-sizing: border-box;
 }
@@ -5,6 +7,7 @@
 body {
     background: #10101B;
     height: 100vh;
+    font-family: "Montserrat";
 }
 
 .container {
@@ -14,12 +17,12 @@ body {
 .half-width {
     height: 570px;
     background: #222436;
-    padding: 30px;
+    padding: 30px ;
     text-align: center;
 }
 
 .generate-btn {
-    margin-top: 140px;
+    margin-top: 100px;
     width: 180px;
     padding: 50px;
     border-radius: 50%;
@@ -50,7 +53,8 @@ input[type='text'] {
 input[type='text']:focus {
     background-color: #3D4153;
     color: #fff;
-    font-size: 20px;
+    font-size: 18px;
+    padding-bottom: 8px;
 }
 
 .numbers {
@@ -83,6 +87,10 @@ input[type='text']:focus {
     cursor: pointer;
 }
 
+.button:hover {
+    background: #374353;
+}
+
 .blink-me {
     color: #E0B612;
 }
@@ -90,7 +98,7 @@ input[type='text']:focus {
 .submit-btn {
     border: none;
     margin-top: 20px;
-    padding: 10px 120px;
+    padding: 12px 130px;
     border-radius: 5px;
     background: #495BC3;
     color: #fff;
@@ -107,11 +115,19 @@ input[type='text']:focus {
 }
 
 .notify-section {
-    width: 35%;
+    width: 75%;
     margin: 0 auto;
 }
 
 .action-left {
     color: #FF3C5F;
     margin-top: 10px;
+}
+
+.generate-pin-section, .match-pin-section {
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
