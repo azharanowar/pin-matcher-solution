@@ -1,9 +1,8 @@
 document.getElementById("generatePinBtn").addEventListener('click', function() {
     const generatePinInput = document.getElementById("generatePinInput");
     let generatedPinNumber = makeRandomPin();
-    
+
     if ( generatedPinNumber === undefined ) {
-        console.log(generatedPinNumber)
         generatedPinNumber = makeRandomPin();
     }
 
@@ -12,9 +11,9 @@ document.getElementById("generatePinBtn").addEventListener('click', function() {
 
 function makeRandomPin() {
     const generatePin = Math.round( Math.random() * 10000 ) + '';
-    if( generatePin.length !== 4 ) {
-        makeRandomPin();
+    if( generatePin.length === 4 ) {
+        return generatePin;
     } else {
-        return parseInt( generatePin );
+        makeRandomPin();
     }
-}        
+}
