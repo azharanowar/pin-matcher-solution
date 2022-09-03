@@ -95,14 +95,6 @@ input[type='text']:focus {
     color: #E0B612;
 }
 
-.submit-btn {
-    border: none;
-    margin-top: 20px;
-    padding: 12px 130px;
-    border-radius: 5px;
-    background: #495BC3;
-    color: #fff;
-}
 
 .notify {
     color: #fff;
@@ -130,4 +122,8 @@ input[type='text']:focus {
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+.notify {
+    display: none;
 }

@@ -11,21 +11,22 @@
 <body>
     <div class="container">
         <div class="notify-section mb-4">
-            <p class="notify" id="notMatchedNotification">❌ Pin Didn't Match, Please try again</p>
-            <p class="notify" id="MatchedNotification">✅ Pin Matched... Secret door is opening for you</p>
+            <p class="notify" id="notificationNotMatch">❌ Pin Didn't Match, Please try again</p>
+            <p class="notify" id="notificationMatched">✅ Pin Matched... Secret door is opening for you</p>
+            <p class="notify" id="errorMessage"></p>
         </div>
         <div class="row">
             <div class="col-lg-6 mb-4 generate-pin-section">
                 <div class="pin-generator half-width rounded-3">
                     <input class="form-control generate-pin-field text-black fw-semibold px-4" type="text" placeholder="To Generate Pin Press The Button" id="generatePinInput" disabled>
-                    <button class="generate-btn" id="generatePinBtn">Generate Pin</button>
+                    <button class="generate-btn btn btn-primary" id="generatePinBtn">Generate Pin</button>
                 </div>
             </div>
             <div class="col-lg-6 match-pin-section">
                 <div class="input-section half-width rounded-3">
-                    <input class="form-control fw-semibold px-3" type="text" placeholder="To Generate Pin Press The Button" id="userProvidePinInput">
+                    <input class="form-control fw-semibold px-3" type="text" placeholder="To Generate Pin Press The Button" id="userGivenPinInput">
                     <div class="numbers">
-                        <div class="calc-body fw-semibold">
+                        <div class="calc-body fw-semibold" id="inputKeysSection">
                             <div class="calc-button-row">
                                 <div class="button number-keys">7</div>
                                 <div class="button number-keys">8</div>
@@ -42,12 +43,12 @@
                                 <div class="button number-keys">3</div>
                             </div>
                             <div class="calc-button-row">
-                                <div class="button">X</div>
+                                <div class="button backspace-key">X</div>
                                 <div class="button number-keys">0</div>
-                                <div class="button">C</div>
+                                <div class="button clear-key">C</div>
                             </div>
                             <div>
-                                <button type="submit" class="submit-btn btn btn-primary fw-semibold text-uppercase">Submit</button>
+                                <button type="submit" class="submit-btn btn btn-primary py-3 mt-3 w-75 fw-semibold text-uppercase" id="userPinSubmitBtn" disabled>Submit</button>
                                 <p class="action-left">3 try left</p>
                             </div>
                         </div>
