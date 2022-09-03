@@ -53,7 +53,7 @@ input[type='text'] {
 input[type='text']:focus {
     background-color: #3D4153;
     color: #fff;
-    font-size: 18px;
+    font-size: 17px;
     padding-bottom: 8px;
 }
 

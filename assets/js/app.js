@@ -13,16 +13,16 @@ document.getElementById("inputKeysSection").addEventListener('click', function( 
     userInputPin( event.target );
 });
 
-document.getElementById("userGivenPinInput").addEventListener('blur', function() {
+document.getElementById("userGivenPinInput").addEventListener('keyup', function() {
     submitBtnEnableDisable();
 });
 
 document.getElementById("userPinSubmitBtn").addEventListener('click', function() {
-    pinNumberMacher();
+    pinNumberMatcher();
 });
 
 
-function pinNumberMacher() {
+function pinNumberMatcher() {
     const generatedPinField = document.getElementById("generatePinInput").value;
     const userGivenPinField = document.getElementById("userGivenPinInput").value;
     const generatedPin = parseInt( document.getElementById("generatePinInput").value );
@@ -71,15 +71,15 @@ function userInputPin( newInputKey ) {
     const newInputKeyValue = newInputKey.innerText;
     const userGivenPinInput = document.getElementById("userGivenPinInput");
     const userGivenPinInputValue = document.getElementById("userGivenPinInput").value;
-    if( newInputKey.classList.contains("number-keys") ) {
-        if ( userGivenPinInputValue.length !== 4 ) {
-            userGivenPinInput.value += newInputKeyValue;
+    if ( isNaN( newInputKeyValue ) ) {
+        if ( newInputKeyValue === "C" ) {
+            userGivenPinInput.value = '';
+        } else if ( newInputKeyValue === "X" ) {
+            console.log(userGivenPinInputValue)
+            userGivenPinInput.value = userGivenPinInputValue.slice( 0, -1 );
         }
-    } else if ( newInputKeyValue === "C" ) {
-        userGivenPinInput.value = '';
-    } else if ( newInputKeyValue === "X" ) {
-        console.log(userGivenPinInputValue)
-        userGivenPinInput.value = userGivenPinInputValue.slice( 0, -1 );
+    } else if ( userGivenPinInputValue.length !== 4 ) {
+         userGivenPinInput.value += newInputKeyValue;
     }
 
     submitBtnEnableDisable();
