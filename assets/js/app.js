@@ -13,6 +13,10 @@ document.getElementById("inputKeysSection").addEventListener('click', function( 
     userInputPin( event.target );
 });
 
+document.getElementById("userGivenPinInput").addEventListener('blur', function() {
+    submitBtnEnableDisable();
+});
+
 document.getElementById("userPinSubmitBtn").addEventListener('click', function() {
     pinNumberMacher();
 });
@@ -32,7 +36,10 @@ function pinNumberMacher() {
         alert("Pin number most be in number!!!");
     } else {
 
-        if ( generatedPin !== userGivenPin ) {
+        if ( generatedPin === userGivenPin ) {
+            document.getElementById("notificationNotMatch").style.display = "none";
+            document.getElementById("notificationMatched").style.display = "block";
+        } else {
             pinNotMatchedCount();
         }
 
@@ -43,6 +50,8 @@ function pinNumberMacher() {
 
 let pinNotMatchedCounted = 0;
 function pinNotMatchedCount() {
+    document.getElementById("notificationMatched").style.display = "none";
+    document.getElementById("notificationNotMatch").style.display = "block";
     document.getElementById("userGivenPinInput").value = '';
     pinNotMatchedCounted++;
     let pinMatchTryLeftElement = document.getElementById("pinMatchTryLeft");
@@ -52,8 +61,8 @@ function pinNotMatchedCount() {
     if ( pinNotMatchedCounted === 3 ) {
         alert( "You've failed to provide the valid pin with 3 attempts. Please wait and try again a few minutes later!!!" );
         document.getElementById("generatePinInput").value = '';
-        document.getElementById("generatePinPection").style.pointerEvents = "none";;
-        document.getElementById("matchPinSection").style.pointerEvents = "none";;
+        document.getElementById("generatePinPection").style.pointerEvents = "none";
+        document.getElementById("matchPinSection").style.pointerEvents = "none";
     }
 }
 
@@ -73,6 +82,11 @@ function userInputPin( newInputKey ) {
         userGivenPinInput.value = userGivenPinInputValue.slice( 0, -1 );
     }
 
+    submitBtnEnableDisable();
+}
+
+
+function submitBtnEnableDisable() {
     if ( userGivenPinInput.value.length === 4 ) {
         document.getElementById("userPinSubmitBtn").disabled = false;
     } else {
