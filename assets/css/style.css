@@ -127,7 +127,3 @@ input[type='text']:focus {
 .notify {
     display: none;
 }
-
-#inputKeysSection {
-    /* pointer-events: none;   */
-}
