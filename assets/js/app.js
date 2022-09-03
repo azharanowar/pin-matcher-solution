@@ -9,12 +9,53 @@ document.getElementById("generatePinBtn").addEventListener('click', function() {
     generatePinInput.value = generatedPinNumber;
 });
 
-
 document.getElementById("inputKeysSection").addEventListener('click', function( event ) {
-
     userInputPin( event.target );
-    
 });
+
+document.getElementById("userPinSubmitBtn").addEventListener('click', function() {
+    pinNumberMacher();
+});
+
+
+function pinNumberMacher() {
+    const generatedPinField = document.getElementById("generatePinInput").value;
+    const userGivenPinField = document.getElementById("userGivenPinInput").value;
+    const generatedPin = parseInt( document.getElementById("generatePinInput").value );
+    const userGivenPin = parseInt( document.getElementById("userGivenPinInput").value );
+
+    if ( generatedPinField === "" ) {
+        alert("Please first generate a pin by pressing generate pin button!!!");
+    } else if ( userGivenPinField === "" ) {
+        alert("You most provide a 4 digit pin to continue!!!");
+    } else if ( isNaN( generatedPin ) || isNaN( userGivenPin ) ) {
+        alert("Pin number most be in number!!!");
+    } else {
+
+        if ( generatedPin !== userGivenPin ) {
+            pinNotMatchedCount();
+        }
+
+
+    }
+}
+
+
+let pinNotMatchedCounted = 0;
+function pinNotMatchedCount() {
+    document.getElementById("userGivenPinInput").value = '';
+    pinNotMatchedCounted++;
+    let pinMatchTryLeftElement = document.getElementById("pinMatchTryLeft");
+    let pinMatchTryLeft = parseInt( pinMatchTryLeftElement.innerText );
+    pinMatchTryLeftElement.innerText = pinMatchTryLeft - 1;
+
+    if ( pinNotMatchedCounted === 3 ) {
+        alert( "You've failed to provide the valid pin with 3 attempts. Please wait and try again a few minutes later!!!" );
+        document.getElementById("generatePinInput").value = '';
+        document.getElementById("generatePinPection").style.pointerEvents = "none";;
+        document.getElementById("matchPinSection").style.pointerEvents = "none";;
+    }
+}
 
 
 function userInputPin( newInputKey ) {

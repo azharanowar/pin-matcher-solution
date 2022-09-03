@@ -16,13 +16,13 @@
             <p class="notify" id="errorMessage"></p>
         </div>
         <div class="row">
-            <div class="col-lg-6 mb-4 generate-pin-section">
+            <div class="col-lg-6 mb-4 generate-pin-section" id="generatePinPection">
                 <div class="pin-generator half-width rounded-3">
                     <input class="form-control generate-pin-field text-black fw-semibold px-4" type="text" placeholder="To Generate Pin Press The Button" id="generatePinInput" disabled>
                     <button class="generate-btn btn btn-primary" id="generatePinBtn">Generate Pin</button>
                 </div>
             </div>
-            <div class="col-lg-6 match-pin-section">
+            <div class="col-lg-6 match-pin-section" id="matchPinSection">
                 <div class="input-section half-width rounded-3">
                     <input class="form-control fw-semibold px-3" type="text" placeholder="To Generate Pin Press The Button" id="userGivenPinInput">
                     <div class="numbers">
@@ -49,7 +49,7 @@
                             </div>
                             <div>
                                 <button type="submit" class="submit-btn btn btn-primary py-3 mt-3 w-75 fw-semibold text-uppercase" id="userPinSubmitBtn" disabled>Submit</button>
-                                <p class="action-left">3 try left</p>
+                                <p class="action-left"><span id="pinMatchTryLeft">3</span> try left</p>
                             </div>
                         </div>
                     </div>
